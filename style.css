@@ -14,7 +14,7 @@ p, h4{
   margin: 0;
 }
 img{
-  background: var(--dark-color);
+  background: rgba(159, 157, 157, 1);
   margin: 0;
 }
 body{
@@ -68,8 +68,13 @@ body{
 .stories{
   -ms-overflow-style: none;
 }
+.user{
+  display :flex;
+  row-gap: 8px;
+  align-items: center;
+  flex-direction: column;
+}
 .user h4{
-  text-align: center;
   font-size: .8rem;
   font-weight: 350;
 }
@@ -85,6 +90,7 @@ body{
   
 }
 .owner{
+  background: rgba(31, 208, 51, 1);
   position: relative;
   overflow: visible !important;
 }
@@ -125,6 +131,7 @@ body{
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+  padding: 5px;
 }
 .UserProfil{
   display: flex;
@@ -166,6 +173,32 @@ body{
 .postBody img{
   width: 100%;
 }
+.postBody.loading{
+  position : relative;
+}
+.postBody.loading::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.25)20%,
+    rgba(0, 0, 0, 0.56)60%,
+    rgba(255, 255, 255, 0.25)
+  );
+  animation: shimmer 1.5s infinite ;
+}
+
+@keyframes shimmer{
+  100%{
+    transform: translateX(100%);
+  }
+}
+.loading img{
+  visibility: hidden;
+}
+
+
 .postFoot{
   display: flex;
   justify-content: space-between;
@@ -219,3 +252,4 @@ body{
   height: 24px;
   border-radius: 50%;
 }
+
